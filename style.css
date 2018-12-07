@@ -1,0 +1,356 @@
+html, body {
+	width: 100%;
+	background: #8DD3B3;
+	position: relative;
+	font-family: 'Averia Sans Libre', cursive;
+	font-size: 1rem;
+	text-rendering: optimizeLegibility !important;
+  	-webkit-font-smoothing: antialiased !important;
+  	backface-visibility: hidden;    
+	-webkit-filter: blur(0);
+  	color: #eee;
+}
+
+/*css3 transition*/
+.choose-size, .choose-color, .choose-speed, .choose-control, .play-btn, .pause-container, .start-btn, .start-btn-text {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.container {
+	width: 300px;
+	padding: 20px;
+	background: #2D2F39;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -170px;
+
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+/*basic info*/
+.title {
+	text-align: center;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 3rem;
+}
+
+.author {
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.author-link {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.score-container {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.score-break {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+/*canvas*/
+.canvas-container {
+	width: 300px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+/*pause container*/
+.pause-container {
+	position: absolute;
+    top: -1px;
+    left: 0;
+    bottom: -1px;
+    width: 300px;
+    background: rgba(0,0,0,0.7);
+}
+
+.pause-container.hide {
+	-moz-transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.select-wrapper {
+	margin-bottom: 10px;
+	padding: 0 10px;
+}
+
+.select-title {
+	display: inline-block;
+	width: 30%;
+}
+
+.choose-size, .choose-color, .choose-speed, .choose-control {
+	display: inline-block;
+	color: #eee;
+	border: 1px solid #eee;
+	padding: 0 5px;
+	line-height: 1.5;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+.choose-control {
+	font-size: 0.8rem;
+	line-height: 2;
+}
+
+.choose-size.selected, .choose-color.selected, .choose-speed.selected, .choose-control.selected, 
+.choose-size:hover, .choose-color:hover, .choose-speed:hover, .choose-control:hover {
+	border: 1px solid #F7E243;
+	color: #666;
+	background: #F7E243;
+} 
+
+.intro-container {
+	padding: 10px;
+}
+
+.option-title, .control-title {
+	text-transform: uppercase;
+	margin: 10px 0 5px 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.control-text, .end-text, .start-text {
+	margin: 0 10px;
+	line-height: 1.5;
+}
+
+.end-text, .start-text {
+	color: #F7E243;
+}
+
+.end-text.hide, .start-text.hide {
+	display: none;
+}
+
+/*bottom area: note and the virtual buttons*/
+.note {
+	margin: 5px 0;
+	text-align: center;
+}
+
+.control-left {
+	position: relative;
+	min-height: 8rem;
+}
+
+.play-btn, .start-btn {
+	position: absolute;
+	box-sizing: border-box;
+	height: 3rem;
+	min-width: 3rem;
+	border-radius: calc(3rem / 2);
+	text-transform: uppercase;
+	color: rgba(0,0,0,.25);
+	text-shadow: 1px 1px rgba(255,255,255,.15);
+	box-shadow: -1px  -1px 1px #899095, 
+		0 0 0 4px rgba(0,0,0,.1),
+		1px  1px 1px rgba(0,0,0,.1), 
+		inset .0 .0 .0 rgba(0,0,0,.2), 
+		inset .5rem .5rem .25rem rgba(255,255,255,.2);
+	-webkit-box-shadow: -1px  -1px 1px #899095, 
+		0 0 0 4px rgba(0,0,0,.1),
+		1px  1px 1px rgba(0,0,0,.1), 
+		inset .0 .0 .0 rgba(0,0,0,.2), 
+		inset .5rem .5rem .25rem rgba(255,255,255,.2);
+	text-align: center;
+	line-height: 3rem;
+	font-size: 2rem;
+}
+
+.top-btn {
+	top: 0;
+	background: #E44E55;
+}
+
+.right-hand .top-btn {
+	right: 3.5rem;
+}
+
+.left-hand .top-btn {
+	left: 3.5rem;
+}
+
+.top-btn:active, .start-btn.start:active {
+	box-shadow:  inset 1px 1px 1px #E44E55,
+    0 0 0 4px rgba(0,0,0,.2),
+    inset -1px -1px 1px #E47479,
+    inset .5rem .5rem .75rem #D13239,
+    inset .5rem .5rem .5rem #E47479;
+
+    -webkit-box-shadow:  inset 1px 1px 1px #E44E55,
+    0 0 0 4px rgba(0,0,0,.2),
+    inset -1px -1px 1px #E47479,
+    inset .5rem .5rem .75rem #D13239,
+    inset .5rem .5rem .5rem #E47479;
+}
+
+.right-btn {
+	background: #FFC054;
+	top: 2.5rem;
+}
+
+.right-hand .right-btn {
+	right: 0rem;
+}
+
+.left-hand .right-btn {
+	left: 7rem;
+}
+
+.right-btn:active, .start-btn.start:active, .start-btn.restart:active {
+	box-shadow:  inset 1px 1px 1px #FFC054,
+    0 0 0 4px rgba(0,0,0,.2),
+    inset -1px -1px 1px #FFD996,
+    inset .5rem .5rem .75rem #F2AA30,
+    inset .5rem .5rem .5rem #FFD996;
+    -webkit-box-shadow:  inset 1px 1px 1px #FFC054,
+    0 0 0 4px rgba(0,0,0,.2),
+    inset -1px -1px 1px #FFD996,
+    inset .5rem .5rem .75rem #F2AA30,
+    inset .5rem .5rem .5rem #FFD996;
+}
+
+.bottom-btn {
+	background: #0066B4;
+	top: 5rem;
+}
+
+.right-hand .bottom-btn {
+	right: 3.5rem;
+}
+
+.left-hand .bottom-btn {
+	left: 3.5rem;
+}
+
+.bottom-btn:active{
+	box-shadow:  inset 1px 1px 1px #0066B4,   
+    0 0 0 4px rgba(0,0,0,.2), 
+    inset -1px -1px 1px #3981CA, 
+    inset .5rem .5rem .75rem #004EAD, 
+    inset .5rem .5rem .5rem #3981CA;
+    -webkit-box-shadow:  inset 1px 1px 1px #0066B4,   
+    0 0 0 4px rgba(0,0,0,.2), 
+    inset -1px -1px 1px #3981CA, 
+    inset .5rem .5rem .75rem #004EAD, 
+    inset .5rem .5rem .5rem #3981CA;
+}
+
+.left-btn {
+	background: #00A07D;
+	top: 2.5rem;
+}
+
+.right-hand .left-btn {
+	right: 7rem;
+}
+
+.left-hand .left-btn {
+	left: 0rem;
+}
+
+.left-btn:active {
+	box-shadow:  inset 1px 1px 1px #00A07D,   
+    0 0 0 4px rgba(0,0,0,.2), 
+    inset -1px -1px 1px #00AF8A, 
+    inset .5rem .5rem .75rem #008F70, 
+    inset .5rem .5rem .5rem #00AF8A;
+    -webkit-box-shadow:  inset 1px 1px 1px #00A07D,   
+    0 0 0 4px rgba(0,0,0,.2), 
+    inset -1px -1px 1px #00AF8A, 
+    inset .5rem .5rem .75rem #008F70, 
+    inset .5rem .5rem .5rem #00AF8A;
+}
+
+.start-btn {
+	width: 8rem;
+    top: 2.5rem;
+    color: #4e4e4e;
+    font-size: 1.2rem;
+    position: absolute;
+    min-height: 3rem;
+}
+
+.start-btn.start, .start-btn.restart {
+	background: #FFC054;
+}
+
+.start-btn.pause {
+	background: #E44E55;
+}
+
+.start-btn-text {
+	position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    opacity: 0;
+}
+
+.start .begin-text, .pause .pause-text, .restart .restart-text {
+	opacity: 1;
+}
+
+.right-hand .start-btn {
+	left: 0rem;
+}
+
+.left-hand .start-btn {
+	right: 0rem;
+}
+
+.control-container {
+	position: relative;
+}
+
+/*mobile phone adjustment*/
+@media only screen and (max-width: 767px) {
+	.container {
+		top: 0%;
+		-moz-transform: translateY(0%);
+		-webkit-transform: translateY(0%);
+		-o-transform: translateY(0%);
+		-ms-transform: translateY(0%);
+		transform: translateY(0%);
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.score-container {
+		font-size: 1.5rem;
+	}
+}

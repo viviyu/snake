@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>HTML5 Snake Game By Vivi Yu</title>
+  <link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre|Gamja+Flower" rel="stylesheet">
+  <link href="reset.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container right-hand" id="main-container">
+  	<div class="title">Snake</div>
+  	<div class="author">By <a href="http://yuvivi.com" target="_blank" class="author-link">Vivi Yu</a></div>
+  	<div class="score-container">
+  		<span class="score-title">Score:</span>
+  		<span class="score-text" id="score-text">0</span>
+  		<span class="score-title score-break">Best:</span>
+  		<span class="score-text" id="high-text">0</span>
+  	</div>
+  	<div class="canvas-container">
+		<canvas id="canvas" width="300" height="300"></canvas>
+		<div class="pause-container" id="pause-screen">
+		  	<div class="select-container">
+		  		<div class="option-title">Options: </div>
+			  	<div class="select-wrapper">
+			  		<span class="select-title">Color Mode: </span>
+			  		<a href="javascript:;" class="choose-color selected" data-mode="normal">Colorful</a>
+			  		<a href="javascript:;" class="choose-color" data-mode="blind">Color Blind</a>
+			  	</div>
+			  	<div class="select-wrapper">
+			  		<span class="select-title">Speed: </span>
+			  		<a href="javascript:;" class="choose-speed selected" data-speed="10">Normal</a>
+			  		<a href="javascript:;" class="choose-speed" data-speed="16">Fast</a>
+			  	</div>
+			  	<div class="select-wrapper">
+			  		<span class="select-title">Control: </span>
+			  		<a href="javascript:;" class="choose-control" data-mode="left-hand">Left-handed</a>
+			  		<a href="javascript:;" class="choose-control selected" data-mode="right-hand">Right-handed</a>
+			  	</div>
+		  	</div>
+		  	<div class="control-container">
+		  		<div class="control-title">Controls:</div>
+		  		<div class="control-text">Use keyboard arrow keys or tap buttons blow to play.</div>
+				<div class="start-text" id="start-text">Click "START" or SPACE to start the game.</div>
+		  		<div class="end-text hide" id="end-text">GG! Click "RESTART" or SPACE to try again!</div>
+		  	</div>
+		</div>
+  	</div>
+  	<div class="note">Get food without touching walls or snake body. GLHF!</div>
+  	<div class="control-container">
+  		<div class="control-left">
+  			<a href="javascript:;" class="start-btn start" id="start-btn">
+  				<span class="start-btn-text begin-text">START</span>
+  				<span class="start-btn-text pause-text">PAUSE</span>
+  				<span class="start-btn-text restart-text">RESTART</span>
+  			</a>
+  		</div>
+  		<div class="control-right">
+  			<a href="javascript:;" class="play-btn top-btn" data-direction="DOWN">↑</a>
+  			<a href="javascript:;" class="play-btn right-btn" data-direction="RIGHT">→</a>
+  			<a href="javascript:;" class="play-btn bottom-btn" data-direction="UP">↓</a>
+  			<a href="javascript:;" class="play-btn left-btn" data-direction="LEFT">←</a>
+  		</div>
+  	</div>
+  </div>
+  <script src="snake.js"></script>
+</body>
+</html>

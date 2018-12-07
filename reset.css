@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+
+.iePngFix{behavior: url(/js/iepngfix.htc);} /* for IE 6 */
+
+/* remove the line around the link */
+a{text-decoration:none;}
+a:focus {
+	noFocusLine:expression(this.onFocus=this.blur());
+	-moz-outline: none !important;
+	outline: none;
+	/*-moz-outline: #F66800 solid 2px !important;
+	outline: #F66800 solid 2px;
+	color:#FF9900;*/
+}
+a:active{/*background:transparent;*/}
+
+/* Clear Fix -- Add the "clearfix" class to the parent element of floated item(s) to clear -- */
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix{
+	clear: both;
+}
+/* Hides from IE-mac \*/
+* html .clearfix{
+	height: 1%;
+	clear: both;
+}
+.clearfix{
+	clear: both;
+}
+/* End hide from IE-mac */
+
+
+/* ######### reset tags' default value in different browsers  ######### */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+menu {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var,
+optgroup {
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+del,
+ins {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+caption,
+th {
+	text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+q:before,
+q:after {
+	content: '';
+}
+
+abbr,
+acronym {
+	border: 0;
+	font-variant: normal;
+}
+
+/*sup {
+	vertical-align: baseline;
+}*/
+
+sub {
+	vertical-align: baseline;
+}
+
+sup {
+	vertical-align: super;
+}
+
+/*because legend doesn't inherit in IE */
+legend {
+	color: #000;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+input,
+button,
+textarea,
+select {
+	font-size: 100%;
+}
+
+body *{-webkit-text-size-adjust:none;} /* Google Chrome min. font size fix */
+
+
+input[type="text"] {
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="password"]:focus {
+  outline: none;
+}
